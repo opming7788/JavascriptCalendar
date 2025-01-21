@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calendar</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <div class="calendar">
+          <div class="month">
+            <i class="fa fa-angle-left prev"></i>
+            <div class="date">november 2025</div>
+            <i class="fa fa-angle-right next"></i>
+          </div>
+          <div class="goto-today">
+            <div class="goto">
+              <input type="date" placeholder="yyyy-mm-dd" class="data-input" />
+              <button class="goto-btn">go</button>
+            </div>
+            <button class="today-btn">今日</button>
+          </div>
+          <div class="weekdays">
+            <div>星期日</div>
+            <div>星期一</div>
+            <div>星期二</div>
+            <div>星期三</div>
+            <div>星期四</div>
+            <div>星期五</div>
+            <div>星期六</div>
+          </div>
+          <div class="days">
+            <!-- add days with javascript -->
+            <!-- <div class="day prev-date">29</div>
+            <div class="day prev-date">30</div>
+            <div class="day">31</div>
+            <div class="day">1</div>
+            <div class="day">2</div>
+            <div class="day">3</div>
+            <div class="day">4</div>
+            <div class="day">5</div>
+            <div class="day">6</div>
+            <div class="day">7</div>
+            <div class="day">8</div>
+            <div class="day">9</div>
+            <div class="day">10</div>
+            <div class="day">11</div>
+            <div class="day">12</div>
+            <div class="day">13</div>
+            <div class="day">14</div>
+            <div class="day">15</div>
+            <div class="day">
+              <div>16</div>
+              <ul>
+                <li>www</li>
+              </ul>
+              <ul>
+                <li>wwwewwwwwwwwwwwwwwwwwww</li>
+              </ul>
+              <ul>
+                <li>www</li>
+              </ul>
+              <ul>
+                <li>www</li>
+              </ul>
+              <ul>
+                <li>www</li>
+              </ul>
+              <ul>
+                <li>www</li>
+              </ul>
+              <ul>
+                <li>www</li>
+              </ul>
+            </div>
+            <div class="day event active">
+              <div>17</div>
+              <ul>
+                <li>www</li>
+              </ul>
+              <ul>
+                <li>wwweeeeeeeeeeeeee</li>
+              </ul>
+              <ul>
+                <li>www</li>
+              </ul>
+              <ul>
+                <li>wwnnnnnnnnnnnnnnnnnnw</li>
+              </ul>
+              <ul>
+                <li>www</li>
+              </ul>
+            </div>
+            <div class="day today">
+              <div>18</div>
+              <ul>
+                <li>ggg</li>
+              </ul>
+            </div>
+            <div class="day">19</div>
+            <div class="day">20</div>
+            <div class="day event">21</div>
+            <div class="day">22</div>
+            <div class="day">23</div>
+            <div class="day">24</div>
+            <div class="day">25</div>
+            <div class="day">26</div>
+            <div class="day">27</div>
+            <div class="day">28</div>
+            <div class="day">29</div>
+            <div class="day">30</div>
+            <div class="day">31</div>
+            <div class="day next-date">1</div> -->
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="today-date">
+          <div class="event-day"></div>
+          <div class="event-date"></div>
+        </div>
+
+        <!-- 遮罩層overlay -->
+        <div class="modal-backdrop"></div>
+        <div class="add-event-wrapper">
+          <div class="add-event-header">
+            <div class="title">添加代辦事項</div>
+            <i class="fas fa-times close"></i>
+          </div>
+          <div class="add-event-body">
+            <div class="add-event-input">
+              <input type="text" placeholder="事項名稱" class="event-name" />
+            </div>
+            <div class="add-event-input">
+              <input
+                type="time"
+                placeholder="開始時間"
+                class="event-time-from"
+              />
+            </div>
+            <div class="add-event-input">
+              <input type="time" placeholder="結束時間" class="event-time-to" />
+            </div>
+          </div>
+          <div class="add-event-footer">
+            <button class="add-event-btn">加入</button>
+          </div>
+        </div>
+
+        <!-- 在add-event-wrapper後面添加編輯表單 -->
+        <div class="edit-event-wrapper">
+          <div class="add-event-header">
+            <div class="title">修改代辦事項</div>
+            <i class="fas fa-times close"></i>
+          </div>
+          <div class="add-event-body">
+            <div class="add-event-input">
+              <input
+                type="text"
+                placeholder="事項名稱"
+                class="edit-event-name"
+              />
+            </div>
+            <div class="add-event-input">
+              <input
+                type="time"
+                placeholder="開始時間"
+                class="edit-event-time-from"
+              />
+            </div>
+            <div class="add-event-input">
+              <input
+                type="time"
+                placeholder="結束時間"
+                class="edit-event-time-to"
+              />
+            </div>
+          </div>
+          <div class="add-event-footer">
+            <button class="edit-event-btn">Save</button>
+          </div>
+        </div>
+
+        <!-- 添加新按鈕 -->
+        <button class="add-event-trigger">+ 新增代辦事項</button>
+
+        <!-- 事件列表容器 -->
+        <div class="events">
+          <div class="no-event">
+            <h3>暫無代辦事項</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
